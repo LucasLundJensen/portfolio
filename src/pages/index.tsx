@@ -21,7 +21,7 @@ const Home: NextPage<Props> = (props) => {
 			<Head>
 				<title>Portfolio</title>
 			</Head>
-			<div className="grid grid-cols-5 lg:grid-cols-6 min-h-[calc(100vh-4rem)] gap-10 items-center border-b border-solid border-emerald-500 dark:border-gray-900">
+			<div className="grid grid-cols-5 lg:grid-cols-6 min-h-[calc(100vh-4rem)] gap-10 items-center border-b border-solid border-emerald-500 dark:border-gray-900 overflow-y-clip">
 				<div className="flex flex-col col-span-3">
 					<h1 className="text-2xl font-bold">
 						Hei! Jeg heter Lucas. <br /> En utvikler som for nylig har flyttet til Norge.
@@ -73,26 +73,14 @@ const Home: NextPage<Props> = (props) => {
 						</Link>
 					</div>
 				</div>
-				<div className="flex flex-col col-span-2 lg:col-span-3 relative max-h-[calc(100vh-12rem)] self-end">
-					<BlobIcon className="left-1/2 transform -translate-x-1/2 rotate-180 w-full h-auto max-w-[500px] absolute text-emerald-400 dark:text-orange-600 blur-xl z-0" />
-					<BlobIcon className="left-1/2 transform -translate-x-1/2 rotate-180 w-full h-auto max-w-[500px] text-emerald-400 absolute dark:text-orange-600 z-10" />
-					<BlobIcon className="left-1/2 transform -translate-x-1/2 top-1/4 rotate-90 w-full h-auto max-w-[500px] absolute text-emerald-400 dark:text-orange-600 blur-xl z-0" />
-					<BlobIcon className="left-1/2 transform -translate-x-1/2 top-1/4 rotate-90 w-full h-auto max-w-[500px] absolute text-emerald-400 dark:text-orange-600 z-10" />
-					<BlobIcon className="left-1/2 transform -translate-x-1/2 top-2/4 rotate-12 w-full h-auto max-w-[500px] absolute text-emerald-400 dark:text-orange-600 blur-xl z-0" />
-					<BlobIcon className="left-1/2 transform -translate-x-1/2 top-2/4 rotate-12 w-full h-auto max-w-[500px] absolute text-emerald-400 dark:text-orange-600 z-10" />
+				<div className="flex flex-col col-span-2 lg:col-span-3 relative max-h-[calc(100vh-5rem)] self-end ">
+					<BlobIcon className="left-1/2 transform -translate-x-1/2 rotate-180 w-full h-auto max-w-[30rem] absolute text-emerald-400 dark:text-orange-600 blur-xl z-0" />
+					<BlobIcon className="left-1/2 transform -translate-x-1/2 rotate-180 w-full h-auto max-w-[30rem] text-emerald-400 absolute dark:text-orange-600 z-10" />
+					<BlobIcon className="left-1/2 transform -translate-x-1/2 top-1/4 rotate-90 w-full h-auto max-w-[30rem] absolute text-emerald-400 dark:text-orange-600 blur-xl z-0" />
+					<BlobIcon className="left-1/2 transform -translate-x-1/2 top-1/4 rotate-90 w-full h-auto max-w-[30rem] absolute text-emerald-400 dark:text-orange-600 z-10" />
+					<BlobIcon className="left-1/2 transform -translate-x-1/2 top-2/4 rotate-12 w-full h-auto max-w-[30rem] absolute text-emerald-400 dark:text-orange-600 blur-xl z-0" />
+					<BlobIcon className="left-1/2 transform -translate-x-1/2 top-2/4 rotate-12 w-full h-auto max-w-[30rem] absolute text-emerald-400 dark:text-orange-600 z-10" />
 					<img className="w-full h-full z-20 overflow-hidden object-contain" src={userPicture.src}></img>
-					{/* <Image
-						className="z-20"
-						src={userPicture}
-						width={969}
-						height={2369}
-						layout={"responsive"}
-						objectFit={"contain"}
-						alt="Picture of Lucas Lund Jensen"
-						placeholder={"blur"}
-						priority
-						quality={100}
-					/> */}
 				</div>
 			</div>
 			<div className="flex flex-col my-8">
@@ -103,13 +91,6 @@ const Home: NextPage<Props> = (props) => {
 							<a className="flex flex-col col-span-6 2xl:col-span-4 p-2 rounded bg-gray-100 dark:bg-transparent border border-solid border-transparent hover:border-gray-300 dark:hover:border-transparent dark:hover:bg-gray-700 transition">
 								<div className="rounded-md overflow-hidden max-h-56">
 									<img className="w-full" src={project.thumbnail.url}></img>
-									{/* <Image
-										src={project.thumbnail.url}
-										alt="Projekt Thumbnail"
-										layout={"responsive"}
-										width={project.thumbnail.width}
-										height={project.thumbnail.height}
-									/> */}
 								</div>
 								<hr className="my-2 dark:border-gray-500 rounded-full" />
 								<h3 className="text-xl font-bold">{project.title}</h3>
