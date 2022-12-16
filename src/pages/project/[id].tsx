@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { GetStaticPropsContext, NextPage } from "next";
 import { gql } from "@apollo/client";
 import client from "../../core/apollo/apollo";
