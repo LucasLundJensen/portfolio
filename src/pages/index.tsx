@@ -162,7 +162,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 		props: {
 			projects: projects || [],
 		},
-		revalidate: 1000, // Regenerate the page on new request if it hasn't been updated X amount of seconds.
+		// revalidate: 1000, // Regenerate the page on new request if it hasn't been updated X amount of seconds.
 	};
 }
 

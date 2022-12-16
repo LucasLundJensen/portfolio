@@ -55,7 +55,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 		props: {
 			project: data.project,
 		},
-		revalidate: 1,
+		// revalidate: 1,
 	};
 }
 
