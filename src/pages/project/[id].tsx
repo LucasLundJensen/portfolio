@@ -10,8 +10,6 @@ interface Props {
 }
 
 const ProjectPage: NextPage<Props> = (props) => {
-	console.log(props);
-
 	return (
 		<div>
 			<Markdown

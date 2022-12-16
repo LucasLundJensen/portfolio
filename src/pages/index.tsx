@@ -16,8 +16,6 @@ interface Props {
 }
 
 const Home: NextPage<Props> = (props) => {
-	console.log(props);
-
 	return (
 		<>
 			<Head>
@@ -127,38 +125,42 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	/**
 	 * Query CMS for projects
 	 */
-	const { data } = await client.query({
-		query: gql`
-			query GetAllProjects {
-				projects(orderBy: position_ASC) {
-					locale
-					createdAt
-					description
-					id
-					publishedAt
-					title
-					updatedAt
-					thumbnail {
-						id
-						url
-						height
-						width
-					}
-					localizations {
+	let projects: any;
+
+	try {
+		const { data } = await client.query({
+			query: gql`
+				query GetAllProjects {
+					projects(orderBy: position_ASC) {
 						locale
+						createdAt
 						description
+						id
+						publishedAt
+						title
+						updatedAt
+						thumbnail {
+							id
+							url
+							height
+							width
+						}
+						localizations {
+							locale
+							description
+						}
 					}
 				}
-				npm
-				run
-			}
-		`,
-	});
+			`,
+		});
+
+		projects = data.projects;
+	} catch (error) {}
 
 	// Return props to page.
 	return {
 		props: {
-			projects: data.projects,
+			projects: projects || [],
 		},
 		revalidate: 1000, // Regenerate the page on new request if it hasn't been updated X amount of seconds.
 	};

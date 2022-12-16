@@ -12,11 +12,9 @@ const Navbar = (props: Props) => {
 	useEffect(() => {
 		window.addEventListener("scroll", onScroll);
 		return () => window.removeEventListener("scroll", onScroll);
-	}, []);
+	}, [onScroll]);
 
 	function onScroll() {
-		console.log(window.scrollY);
-
 		if (window.scrollY > 0) {
 			if (!hasScrolled) {
 				setHasScrolled(true);
