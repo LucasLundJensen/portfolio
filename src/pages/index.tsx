@@ -1,6 +1,5 @@
 import type { NextPage, GetStaticPropsContext } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { gql } from "@apollo/client";
 import client from "../core/apollo/apollo";
@@ -10,6 +9,7 @@ import LinkedInIcon from "../components/Icons/LinkedInIcon";
 import Highlight from "../components/Text/Highlight";
 import { ProjectCard } from "../core/types/project.types";
 import BlobIcon from "../components/Icons/BlobIcon";
+import EmailIcon from "../components/Icons/EmailIcon";
 
 interface Props {
 	projects: ProjectCard[];
@@ -21,7 +21,10 @@ const Home: NextPage<Props> = (props) => {
 			<Head>
 				<title>Portfolio</title>
 			</Head>
-			<div className="grid grid-cols-5 lg:grid-cols-6 min-h-[calc(100vh-4rem)] gap-10 items-center border-b border-solid border-emerald-500 dark:border-gray-900 overflow-y-clip">
+			<div
+				id="about"
+				className="grid grid-cols-5 lg:grid-cols-6 min-h-[calc(100vh-4rem)] gap-10 items-center border-b border-solid border-emerald-500 dark:border-gray-900 overflow-y-clip"
+			>
 				<div className="flex flex-col col-span-3">
 					<h1 className="text-2xl font-bold">
 						Hei! Jeg heter Lucas. <br /> En utvikler som for nylig har flyttet til Norge.
@@ -39,8 +42,8 @@ const Home: NextPage<Props> = (props) => {
 						<br />
 						Hoveddelen av min tid hos A&O ble brukt til å jobbe med deres ERP system. Arbeidsopgavene var
 						som regel splittet i 3 forskellige grupper: back-end utvikling i Java, front-end utvikling i C#
-						WPF og Angular og sist men ikke minst, fremtids planlegning og utvikling i Azure for å kunne
-						separere standar M3 med våre modifikasjoner.
+						WPF, Angular og React og sist men ikke minst, fremtids planlegning og utvikling i Azure for å
+						kunne separere standar M3 med våre modifikasjoner.
 						<br />
 						<br />
 						Gjennom disse erfaringene, har jeg fått muligheten til å bygge
@@ -71,6 +74,13 @@ const Home: NextPage<Props> = (props) => {
 								<p className="ml-1.5">GitHub</p>
 							</a>
 						</Link>
+						<a
+							href="mailto:lucas.lund@live.dk"
+							className="flex flex-row items-center px-3 py-2 bg-black text-white mr-2 rounded-md dark:bg-gray-700 dark:hover:bg-gray-800 hover:bg-gray-600 transition"
+						>
+							<EmailIcon className="w-5 h-5" />
+							<p className="ml-1.5">E-mail</p>
+						</a>
 					</div>
 				</div>
 				<div className="flex flex-col col-span-2 lg:col-span-3 relative max-h-[calc(100vh-5rem)] self-end ">
@@ -83,7 +93,7 @@ const Home: NextPage<Props> = (props) => {
 					<img className="w-full h-full z-20 overflow-hidden object-contain" src={userPicture.src}></img>
 				</div>
 			</div>
-			<div className="flex flex-col my-8">
+			<div id="projects" className="flex flex-col my-8">
 				<h2 className="text-2xl font-bold mb-4">Projekter</h2>
 				<div className="grid grid-cols-12 gap-4">
 					{props.projects.map((project) => (

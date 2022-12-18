@@ -35,10 +35,10 @@ const Navbar = (props: Props) => {
 				<a className="font-medium">Lucas Lund Jensen</a>
 			</Link>
 			<div className="flex flex-row items-center ml-auto">
-				<NavbarLink href="/about" text="Om meg" />
-				<NavbarLink href="/projects" text="Projekter" />
+				<NavbarLink href="/#about" text="Om meg" />
+				<NavbarLink href="/#projects" text="Projekter" />
 				{/* <NavbarLink href="/jobs" text="Arbeidserfaring" /> */}
-				<NavbarLink href="/contact" text="Kontakt" />
+				{/* <NavbarLink href="/contact" text="Kontakt" /> */}
 			</div>
 			<ThemeToggle className="ml-2" />
 		</nav>
