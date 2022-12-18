@@ -34,12 +34,14 @@ export type ProjectCard = {
 /**
  * Structure of a project that has been localized, only contains the fields that are localized.
  */
-export type LocalizedProject = {
-	content: {
-		markdown: string;
-	};
-	description: string;
+export type LocalizedProject = Project & {
+	localizations: Localization[];
+};
+
+export type Localization = {
 	locale: string;
+	description: string;
+	content: string;
 };
 
 /**

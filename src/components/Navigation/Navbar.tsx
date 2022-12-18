@@ -1,12 +1,18 @@
 import clsx from "clsx";
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import LangDropdown from "../Dropdown/LangDropdown";
 import ThemeToggle from "../Toggle/ThemeToggle";
 import NavbarLink from "./NavbarLink";
 
 interface Props {}
 
 const Navbar = (props: Props) => {
+	const { locale, locales, defaultLocale, asPath } = useRouter();
+	const { t } = useTranslation("navbar");
+
 	const [hasScrolled, setHasScrolled] = useState<boolean>(false);
 
 	useEffect(() => {
@@ -35,11 +41,12 @@ const Navbar = (props: Props) => {
 				<a className="font-medium">Lucas Lund Jensen</a>
 			</Link>
 			<div className="flex flex-row items-center ml-auto">
-				<NavbarLink href="/#about" text="Om meg" />
-				<NavbarLink href="/#projects" text="Projekter" />
+				<NavbarLink href="/#about" text={t("about")} />
+				<NavbarLink href="/#projects" text={t("projects")} />
 				{/* <NavbarLink href="/jobs" text="Arbeidserfaring" /> */}
 				{/* <NavbarLink href="/contact" text="Kontakt" /> */}
 			</div>
+			<LangDropdown languages={locales || []} />
 			<ThemeToggle className="ml-2" />
 		</nav>
 	);
