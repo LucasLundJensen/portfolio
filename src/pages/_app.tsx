@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<div className="w-11/12 xl:w-9/12 2xl:w-7/12 mx-auto">
 					<Component {...pageProps} />
 				</div>
+				<Analytics />
 			</div>
 		</ThemeProvider>
 	);
