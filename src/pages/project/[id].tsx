@@ -5,6 +5,7 @@ import { LocalizedProject } from "../../core/types/project.types";
 import Markdown from "markdown-to-jsx";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 interface Props {
 	project: LocalizedProject;
@@ -86,6 +87,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	return {
 		props: {
 			project: data.project,
+			...(await serverSideTranslations(context.locale!, ["navbar"])),
 		},
 		// revalidate: 1,
 	};
