@@ -3,11 +3,11 @@
 const { i18n } = require("./next-i18next.config");
 
 const ContentSecurityPolicy = `
-  default-src 'self';
+  default-src 'self' vitals.vercel-insights.com;
   script-src 'self' 'unsafe-inline' vitals.vercel-insights.com;
   child-src vitals.vercel-insights.com;
   style-src 'self' 'unsafe-inline';
-  font-src 'self' 'unsafe-inline';  
+  font-src 'self' 'unsafe-inline' fonts.gstatic.com/*;  
 `;
 
 const headers = [
