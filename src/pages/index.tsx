@@ -45,23 +45,17 @@ const Home: NextPage<Props> = (props) => {
 						<strong> {t("introduction-text-callcard")}</strong>
 					</p>
 					<div className="flex flex-row mt-2">
-						<Link href="https://www.linkedin.com/in/lucas-l-886352138/">
-							<a
-								target={"_blank"}
-								className="flex flex-row items-center px-3 py-2 bg-black text-white mr-2 rounded-md dark:bg-gray-700 dark:hover:bg-gray-800 hover:bg-gray-600 transition"
-							>
+						<Link target={"_blank"} href="https://www.linkedin.com/in/lucas-l-886352138/" legacyBehavior>
+							<div className="flex flex-row items-center px-3 py-2 bg-black text-white mr-2 rounded-md dark:bg-gray-700 dark:hover:bg-gray-800 hover:bg-gray-600 transition">
 								<LinkedInIcon className="w-6 h-6" />
 								<p className="ml-1.5">LinkedIn</p>
-							</a>
+							</div>
 						</Link>
-						<Link href="https://github.com/lucaslundjensen">
-							<a
-								target={"_blank"}
-								className="flex flex-row items-center px-3 py-2 bg-black text-white mr-2 rounded-md dark:bg-gray-700 dark:hover:bg-gray-800 hover:bg-gray-600 transition"
-							>
+						<Link target={"_blank"} href="https://github.com/lucaslundjensen" legacyBehavior>
+							<div className="flex flex-row items-center px-3 py-2 bg-black text-white mr-2 rounded-md dark:bg-gray-700 dark:hover:bg-gray-800 hover:bg-gray-600 transition">
 								<GithubIcon className="w-6 h-6" />
 								<p className="ml-1.5">GitHub</p>
-							</a>
+							</div>
 						</Link>
 						<a
 							href="mailto:lucas.lund@live.dk"
@@ -86,7 +80,7 @@ const Home: NextPage<Props> = (props) => {
 				<h2 className="text-2xl font-bold mb-4">{t("projects")}</h2>
 				<div className="grid grid-cols-12 gap-4">
 					{props.projects.map((project) => (
-						<Link key={project.id} href={`project/${project.id}`}>
+						<Link key={project.id} href={`project/${project.id}`} legacyBehavior>
 							<a className="flex flex-col col-span-6 2xl:col-span-4 p-2 rounded bg-gray-100 dark:bg-transparent border border-solid border-transparent hover:border-gray-300 dark:hover:border-transparent dark:hover:bg-gray-700 transition">
 								<div className="rounded-md overflow-hidden max-h-56">
 									<img className="w-full" src={project.thumbnail.url}></img>
@@ -143,7 +137,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	return {
 		props: {
 			projects: projects || [],
-			...(await serverSideTranslations(context.locale!, ["home"])),
+			...(await serverSideTranslations(context.locale!, ["home", "navbar"])),
 		},
 		// revalidate: 1000, // Regenerate the page on new request if it hasn't been updated X amount of seconds.
 	};

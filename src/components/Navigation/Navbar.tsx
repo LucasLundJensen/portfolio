@@ -37,13 +37,11 @@ const Navbar = (props: Props) => {
 				hasScrolled && "bg-white/95 dark:bg-dark-gray/75"
 			)}
 		>
-			<Link href="/">
-				<a className="font-medium">Lucas Lund Jensen</a>
-			</Link>
+			<Link href="/">Lucas Lund Jensen</Link>
 			<div className="flex flex-row items-center ml-auto">
 				<NavbarLink href="/#about" text={t("about")} />
 				<NavbarLink href="/#projects" text={t("projects")} />
-				{/* <NavbarLink href="/jobs" text="Arbeidserfaring" /> */}
+				<NavbarLink href="/jobs" text={t("experience")} />
 				{/* <NavbarLink href="/contact" text="Kontakt" /> */}
 			</div>
 			<LangDropdown languages={locales || []} />
