@@ -7,7 +7,7 @@ const ContentSecurityPolicy = `
   script-src 'self' 'unsafe-inline' vitals.vercel-insights.com;
   child-src vitals.vercel-insights.com;
   style-src 'self' 'unsafe-inline';
-  font-src 'self' 'unsafe-inline' fonts.gstatic.com/*;  
+  font-src 'self' 'unsafe-inline' fonts.gstatic.com;  
 `;
 
 const headers = [
