@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import ChevronDownIcon from "../Icons/ChevronDownIcon";
@@ -24,11 +25,6 @@ const LangDropdown = (props: Props) => {
 	const [visible, setVisible] = useState<boolean>(false);
 	const router = useRouter();
 
-	function setLocale(language: string) {
-		router.push(router.asPath, router.asPath, { locale: language });
-		setVisible(false);
-	}
-
 	return (
 		<div className="relative ml-2">
 			<button
@@ -46,13 +42,15 @@ const LangDropdown = (props: Props) => {
 				)}
 			>
 				{props.languages.map((lang) => (
-					<button
-						className="py-1 w-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-						onClick={() => setLocale(lang)}
+					<Link
+						className="py-1 w-full text-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
 						key={lang}
+						onClick={() => setVisible(!visible)}
+						locale={lang}
+						href={router.asPath}
 					>
 						{translateLanguage(lang)}
-					</button>
+					</Link>
 				))}
 			</div>
 		</div>
