@@ -24,6 +24,8 @@ const ProjectPage: NextPage<Props> = (props) => {
 	function findLocalizedContent() {
 		const locale = router.locale;
 		let found = false;
+		console.log(props.project.localizations);
+
 		props.project.localizations.forEach((localization) => {
 			if (found) return;
 
@@ -35,8 +37,13 @@ const ProjectPage: NextPage<Props> = (props) => {
 		});
 
 		if (!found) {
+			console.log(props.project.locale);
+			console.log(locale);
+
 			if (props.project.locale !== locale) {
 				setLocalizationFailed(true);
+			} else {
+				setLocalizationFailed(false);
 			}
 			setLocalizedContent(props.project.content);
 		}
