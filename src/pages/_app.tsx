@@ -21,14 +21,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 	);
 }
 
-// export async function getStaticProps(context: GetStaticPropsContext) {
-// 	// Return props to page.
-// 	return {
-// 		props: {
-// 			...(await serverSideTranslations(context.locale!, ["navbar"])),
-// 		},
-// 		// revalidate: 1000, // Regenerate the page on new request if it hasn't been updated X amount of seconds.
-// 	};
-// }
-
 export default appWithTranslation(MyApp);

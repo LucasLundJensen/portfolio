@@ -92,7 +92,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 			project: data.project,
 			...(await serverSideTranslations(context.locale!, ["navbar"])),
 		},
-		revalidate: 1,
+		revalidate: 1000,
 	};
 }
 
