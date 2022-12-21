@@ -18,7 +18,7 @@ const ProjectPage: NextPage<Props> = (props) => {
 
 	useEffect(() => {
 		findLocalizedContent();
-	}, []);
+	}, [localizedContent, router.locale]);
 
 	function findLocalizedContent() {
 		const locale = router.locale;
@@ -28,13 +28,16 @@ const ProjectPage: NextPage<Props> = (props) => {
 
 			if (localization.locale === locale) {
 				setLocalizedContent(localization.content);
+				setLocalizationFailed(false);
 				found = true;
 			}
 		});
 
 		if (!found) {
+			if (props.project.locale !== locale) {
+				setLocalizationFailed(true);
+			}
 			setLocalizedContent(props.project.content);
-			setLocalizationFailed(true);
 		}
 	}
 
@@ -89,7 +92,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 			project: data.project,
 			...(await serverSideTranslations(context.locale!, ["navbar"])),
 		},
-		// revalidate: 1,
+		revalidate: 1,
 	};
 }
 
@@ -104,16 +107,26 @@ export async function getStaticPaths() {
 		`,
 	});
 
-	const paths = data.projects.map((project: any) => {
+	const englishPaths = data.projects.map((project: any) => {
 		return {
 			params: {
 				id: project.id,
 			},
+			locale: "en_US",
+		};
+	});
+
+	const norwegianPaths = data.projects.map((project: any) => {
+		return {
+			params: {
+				id: project.id,
+			},
+			locale: "no_NO",
 		};
 	});
 
 	return {
-		paths,
+		paths: [...englishPaths, ...norwegianPaths],
 		fallback: false,
 	};
 }
