@@ -6,6 +6,7 @@ import Navbar from "../components/Navigation/Navbar";
 import { appWithTranslation } from "next-i18next";
 import { GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import nextI18NextConfig from "../../next-i18next.config";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
@@ -21,4 +22,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 	);
 }
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp, nextI18NextConfig);
