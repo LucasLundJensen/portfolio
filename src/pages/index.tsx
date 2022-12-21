@@ -1,6 +1,6 @@
 import type { NextPage, GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
+import { useTranslation, withTranslation } from "next-i18next";
 import Head from "next/head";
 import Link from "next/link";
 import { gql } from "@apollo/client";
@@ -159,4 +159,4 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	};
 }
 
-export default Home;
+export default withTranslation("common")(Home);

@@ -6,6 +6,7 @@ import Markdown from "markdown-to-jsx";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { withTranslation } from "react-i18next";
 
 interface Props {
 	project: LocalizedProject;
@@ -131,4 +132,4 @@ export async function getStaticPaths() {
 	};
 }
 
-export default ProjectPage;
+export default withTranslation("common")(ProjectPage);
