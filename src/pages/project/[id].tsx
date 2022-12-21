@@ -6,13 +6,14 @@ import Markdown from "markdown-to-jsx";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 interface Props {
 	project: LocalizedProject;
 }
 
 const ProjectPage: NextPage<Props> = (props) => {
+	const { t } = useTranslation("common");
 	const [localizedContent, setLocalizedContent] = useState<string>();
 	const [localizationFailed, setLocalizationFailed] = useState<boolean>(false);
 	const router = useRouter();
@@ -24,7 +25,6 @@ const ProjectPage: NextPage<Props> = (props) => {
 	function findLocalizedContent() {
 		const locale = router.locale;
 		let found = false;
-		console.log(props.project.localizations);
 
 		props.project.localizations.forEach((localization) => {
 			if (found) return;
@@ -37,9 +37,6 @@ const ProjectPage: NextPage<Props> = (props) => {
 		});
 
 		if (!found) {
-			console.log(props.project.locale);
-			console.log(locale);
-
 			if (props.project.locale !== locale) {
 				setLocalizationFailed(true);
 			} else {
@@ -53,7 +50,7 @@ const ProjectPage: NextPage<Props> = (props) => {
 		<div>
 			{localizationFailed && (
 				<div className="text-center mt-4 bg-red-700 py-2 opacity-70 text-white">
-					<p>This post has not yet been translated to your current selected language.</p>
+					<p>{t("postNotTranslated")}</p>
 				</div>
 			)}
 			<Markdown
@@ -98,7 +95,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	return {
 		props: {
 			project: data.project,
-			...(await serverSideTranslations(context.locale!, ["navbar"])),
+			...(await serverSideTranslations(context.locale!, ["common", "navbar"])),
 		},
 		revalidate: 1000,
 	};
@@ -139,4 +136,4 @@ export async function getStaticPaths() {
 	};
 }
 
-export default withTranslation("common")(ProjectPage);
+export default ProjectPage;

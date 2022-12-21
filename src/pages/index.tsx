@@ -153,10 +153,10 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	return {
 		props: {
 			projects: projects || [],
-			...(await serverSideTranslations(context.locale!, ["home", "navbar"], nextI18NextConfig)),
+			...(await serverSideTranslations(context.locale!, ["common", "home", "navbar"], nextI18NextConfig)),
 		},
 		revalidate: 1000,
 	};
 }
 
-export default withTranslation("common")(Home);
+export default Home;
