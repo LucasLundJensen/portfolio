@@ -3,7 +3,7 @@
 const { i18n } = require("./next-i18next.config");
 
 const ContentSecurityPolicy = `
-  default-src 'self' vitals.vercel-insights.com;
+  default-src 'self' vitals.vercel-insights.com media.graphassets.com;
   script-src 'self' 'unsafe-inline' 'unsafe-eval' vitals.vercel-insights.com;
   child-src vitals.vercel-insights.com;
   style-src 'self' 'unsafe-inline';
