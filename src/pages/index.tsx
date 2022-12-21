@@ -13,6 +13,7 @@ import { ProjectCard } from "../core/types/project.types";
 import BlobIcon from "../components/Icons/BlobIcon";
 import EmailIcon from "../components/Icons/EmailIcon";
 import Image from "next/image";
+import nextI18NextConfig from "../../next-i18next.config";
 
 interface Props {
 	projects: ProjectCard[];
@@ -152,7 +153,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	return {
 		props: {
 			projects: projects || [],
-			...(await serverSideTranslations(context.locale!, ["home", "navbar"])),
+			...(await serverSideTranslations(context.locale!, ["home", "navbar"], nextI18NextConfig)),
 		},
 		revalidate: 1000,
 	};
