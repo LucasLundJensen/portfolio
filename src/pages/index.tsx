@@ -91,7 +91,7 @@ const Home: NextPage<Props> = (props) => {
 				<div className="grid grid-cols-12 gap-4">
 					{props.projects.map((project) => (
 						<Link key={project.id} href={`project/${project.id}`} legacyBehavior>
-							<a className="flex flex-col col-span-6 2xl:col-span-4 rounded bg-gray-200 dark:bg-[#1e1e1e] dark:bg-transparent border border-solid border-transparent hover:border-gray-300 dark:hover:border-transparent dark:hover:bg-gray-700 transition">
+							<a className="flex flex-col col-span-6 2xl:col-span-4 rounded bg-gray-200 dark:bg-dark-lightgray border border-solid border-transparent hover:border-gray-300 dark:hover:border-transparent dark:hover:bg-gray-700 transition">
 								<div className="rounded-t-md overflow-hidden max-h-56">
 									<Image
 										className="w-full"
