@@ -154,7 +154,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	return {
 		props: {
 			projects: projects || [],
-			...(await serverSideTranslations(context.locale!, ["common", "home", "navbar"], nextI18NextConfig)),
+			...(await serverSideTranslations(context.locale!, ["common", "home", "navbar"])),
 		},
 		revalidate: 1000,
 	};
