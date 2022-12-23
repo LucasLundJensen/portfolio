@@ -91,8 +91,8 @@ const Home: NextPage<Props> = (props) => {
 				<div className="grid grid-cols-12 gap-4">
 					{props.projects.map((project) => (
 						<Link key={project.id} href={`project/${project.id}`} legacyBehavior>
-							<a className="flex flex-col col-span-6 2xl:col-span-4 p-2 rounded bg-gray-100 dark:bg-transparent border border-solid border-transparent hover:border-gray-300 dark:hover:border-transparent dark:hover:bg-gray-700 transition">
-								<div className="rounded-md overflow-hidden max-h-56">
+							<a className="flex flex-col col-span-6 2xl:col-span-4 rounded bg-gray-200 dark:bg-[#1e1e1e] dark:bg-transparent border border-solid border-transparent hover:border-gray-300 dark:hover:border-transparent dark:hover:bg-gray-700 transition">
+								<div className="rounded-t-md overflow-hidden max-h-56">
 									<Image
 										className="w-full"
 										src={project.thumbnail.url}
@@ -101,9 +101,10 @@ const Home: NextPage<Props> = (props) => {
 										height={project.thumbnail.height}
 									/>
 								</div>
-								<hr className="my-2 dark:border-gray-500 rounded-full" />
-								<h3 className="text-xl font-bold">{project.title}</h3>
-								<p className="text-sm">{project.description}</p>
+								<div className="p-2">
+									<h3 className="text-xl font-bold">{project.title}</h3>
+									<p className="text-sm">{project.description}</p>
+								</div>
 							</a>
 						</Link>
 					))}
