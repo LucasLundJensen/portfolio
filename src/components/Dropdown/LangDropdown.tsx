@@ -28,7 +28,7 @@ const LangDropdown = (props: Props) => {
 	return (
 		<div className="relative ml-2">
 			<button
-				className="flex flex-row items-center bg-slate-400 dark:bg-gray-700 p-2 rounded-md"
+				className="flex flex-row items-center bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 p-2 rounded-md"
 				onClick={() => setVisible(!visible)}
 			>
 				{translateLanguage(router.locale || "no-NO")}
@@ -43,7 +43,7 @@ const LangDropdown = (props: Props) => {
 			>
 				{props.languages.map((lang) => (
 					<Link
-						className="py-1 w-full text-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+						className="py-2 w-full text-center hover:bg-gray-200 dark:hover:bg-gray-700  border-b border-solid border-black last:border-none first:rounded-t-md last:rounded-b-md"
 						key={lang}
 						onClick={() => setVisible(!visible)}
 						locale={lang}
