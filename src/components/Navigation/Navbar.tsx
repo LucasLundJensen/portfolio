@@ -34,7 +34,7 @@ const Navbar = (props: Props) => {
 		<nav
 			className={clsx(
 				"h-16 sticky top-0 z-50 flex bg-transparent dark:bg-transparent backdrop-blur transition-colors duration-500 flex-row items-center border-gray-200 drop-shadow-sm border-solid border-b text-black py-3 px-32 dark:border-gray-900/[0.7] dark:text-white",
-				hasScrolled && "bg-white/95 dark:bg-dark-gray/75"
+				hasScrolled && "bg-gray-100/75 dark:bg-dark-gray/75"
 			)}
 		>
 			<Link href="/">Lucas Lund Jensen</Link>
