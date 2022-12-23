@@ -11,7 +11,7 @@ import nextI18NextConfig from "../../next-i18next.config";
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<ThemeProvider attribute="class" defaultTheme="light">
-			<div className="flex flex-col bg-white dark:bg-dark-gray whitespace-pre-line">
+			<div className="flex flex-col bg-gray-100 dark:bg-dark-gray whitespace-pre-line">
 				<Navbar />
 				<div className="w-11/12 xl:w-9/12 2xl:w-7/12 mx-auto">
 					<Component {...pageProps} />
