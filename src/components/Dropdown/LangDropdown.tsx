@@ -10,11 +10,11 @@ interface Props {
 
 function translateLanguage(language: string) {
 	switch (language) {
-		case "dk_DK":
+		case "dk":
 			return "Dansk";
-		case "no_NO":
+		case "no":
 			return "Norsk";
-		case "en_US":
+		case "en":
 			return "English";
 		default:
 			return "English";
