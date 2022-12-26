@@ -10,9 +10,7 @@ import LinkedInIcon from "./Icons/LinkedInIcon";
 import Highlight from "./Text/Highlight";
 import { useTranslation } from "next-i18next";
 
-interface Props {}
-
-const Introduction = (props: Props) => {
+const Introduction = () => {
 	const { t } = useTranslation("home");
 	const [textVisible, setTextVisible] = useState<boolean>(false);
 
@@ -37,7 +35,7 @@ const Introduction = (props: Props) => {
 				ref={textContainer}
 				className={clsx(
 					!textVisible && "invisible w-0",
-					textVisible && "visible w-1/2",
+					textVisible && "visible w-full lg:w-1/2",
 					"flex flex-col transition-introduction duration-500 opacity-0 h-0"
 				)}
 			>
@@ -83,7 +81,7 @@ const Introduction = (props: Props) => {
 				className={clsx(
 					!textVisible && "w-full",
 					textVisible && "w-1/2",
-					"flex flex-col relative self-end max-h-[calc(100vh-5rem)] tall:max-h-full"
+					"hidden lg:flex flex-col relative self-end max-h-[calc(100vh-5rem)] tall:max-h-full"
 				)}
 			>
 				<BlobIcon className="left-1/2 transform -translate-x-1/2 rotate-180 w-full h-auto max-w-[30rem] absolute text-emerald-400 dark:text-orange-600 blur-xl z-0" />

@@ -4,8 +4,6 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Navbar from "../components/Navigation/Navbar";
 import { appWithTranslation } from "next-i18next";
-import { GetStaticPropsContext } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import nextI18NextConfig from "../../next-i18next.config";
 
 function MyApp({ Component, pageProps }: AppProps) {
