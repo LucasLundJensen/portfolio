@@ -7,6 +7,7 @@ module.exports = {
 		extend: {
 			colors: {
 				"dark-gray": "#111111",
+				"dark-lightgray": "#1e1e1e",
 			},
 			fontFamily: {
 				sans: ["Inter", ...defaultTheme.fontFamily.sans],

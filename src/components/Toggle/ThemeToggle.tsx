@@ -28,7 +28,7 @@ const ThemeToggle = (props: Props) => {
 	return (
 		<label
 			className={clsx(
-				"relative cursor-pointer bg-slate-400 dark:bg-gray-700 w-16 h-8 rounded-full",
+				"relative cursor-pointer bg-gray-300 dark:bg-gray-700 w-16 h-8 rounded-full",
 				props.className
 			)}
 			htmlFor="checkbox"
@@ -44,7 +44,7 @@ const ThemeToggle = (props: Props) => {
 			/>
 			<span
 				className={clsx(
-					"absolute top-1 left-1 w-6 h-6 bg-slate-500 dark:bg-gray-600 rounded-full transition",
+					"absolute top-1 left-1 w-6 h-6 bg-gray-400 dark:bg-gray-600 rounded-full transition",
 					checked && "translate-x-8"
 				)}
 			></span>

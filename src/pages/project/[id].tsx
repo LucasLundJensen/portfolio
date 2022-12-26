@@ -20,7 +20,7 @@ const ProjectPage: NextPage<Props> = (props) => {
 
 	useEffect(() => {
 		findLocalizedContent();
-	}, [localizedContent, router.locale]);
+	}, [localizedContent, router.locale, findLocalizedContent]);
 
 	function findLocalizedContent() {
 		const locale = router.locale;
@@ -117,7 +117,7 @@ export async function getStaticPaths() {
 			params: {
 				id: project.id,
 			},
-			locale: "en_US",
+			locale: "en",
 		};
 	});
 
@@ -126,7 +126,7 @@ export async function getStaticPaths() {
 			params: {
 				id: project.id,
 			},
-			locale: "no_NO",
+			locale: "no",
 		};
 	});
 
