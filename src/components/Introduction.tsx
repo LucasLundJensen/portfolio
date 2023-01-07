@@ -93,7 +93,7 @@ const Introduction = () => {
 				className={clsx(
 					!textVisible && "w-full",
 					textVisible && "w-1/2",
-					"hidden lg:flex flex-col relative self-end max-h-[calc(100vh-5rem)] tall:max-h-full"
+					"hidden lg:flex flex-col relative self-end max-h-[calc(100vh-5rem)] tall:max-h-full overflow-y-clip pt-10"
 				)}
 			>
 				<BlobIcon className="left-1/2 transform -translate-x-1/2 rotate-180 w-full h-auto max-w-[30rem] absolute text-emerald-400 dark:text-orange-600 blur-xl z-0" />
