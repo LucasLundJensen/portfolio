@@ -18,25 +18,37 @@ const Introduction = () => {
 	const textContainer = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		setTimeout(() => {
-			setTextVisible(true);
+		const imageHidden = window.innerWidth < 1024;
 
+		if (imageHidden) {
+			if (!textContainer || !textContainer.current) {
+				return;
+			}
+			setTextVisible(true);
+			textContainer.current.style.opacity = "1";
+			textContainer.current.style.height = "100%";
+		} else {
 			setTimeout(() => {
-				if (!textContainer || !textContainer.current) return;
-				textContainer.current.style.opacity = "1";
-				textContainer.current.style.height = "100%";
+				setTextVisible(true);
+
+				setTimeout(() => {
+					if (!textContainer || !textContainer.current) return;
+					textContainer.current.style.opacity = "1";
+					textContainer.current.style.height = "100%";
+				}, 1000);
 			}, 1000);
-		}, 1000);
+		}
 	}, []);
 
 	return (
 		<div className="flex flex-row justify-center min-h-[calc(100vh-4rem)] items-center tall:min-h-[1300px] tall:max-h-[1300px] tall:mt-4 border-b border-solid border-emerald-500 dark:border-gray-900">
 			<div
+				id="about"
 				ref={textContainer}
 				className={clsx(
 					!textVisible && "invisible w-0",
 					textVisible && "visible w-full lg:w-1/2",
-					"flex flex-col transition-introduction duration-500 opacity-0 h-0"
+					"flex flex-col lg:transition-introduction lg:duration-500 opacity-0 h-0"
 				)}
 			>
 				<h1 className="text-2xl font-bold">{t("introduction-title")}</h1>
@@ -54,7 +66,7 @@ const Introduction = () => {
 					{t("introduction-text-6")}
 					<strong> {t("introduction-text-callcard")}</strong>
 				</p>
-				<div className="flex flex-row mt-2">
+				<div className="hidden lg:flex flex-row mt-2">
 					<Link target={"_blank"} href="https://www.linkedin.com/in/lucas-l-886352138/" legacyBehavior>
 						<div className="flex flex-row items-center px-3 py-2 bg-black text-white mr-2 rounded-md dark:bg-gray-700 dark:hover:bg-gray-800 hover:bg-gray-600 transition">
 							<LinkedInIcon className="w-6 h-6" />

@@ -42,12 +42,9 @@ const Navbar = (props: Props) => {
 				)}
 			>
 				<Link href="/">Lucas Lund Jensen</Link>
-				<div className="flex flex-row items-center ml-auto">
+				<div className="flex flex-row items-center ml-auto lg:hidden">
 					<ThemeToggle className="mr-2" />
-					<button
-						onClick={() => setDropdownVisible(!dropdownVisible)}
-						className="lg:hidden p-2 rounded-md bg-gray-700"
-					>
+					<button onClick={() => setDropdownVisible(!dropdownVisible)} className="p-2 rounded-md bg-gray-700">
 						<BarsIcon className="w-5 h-5 text-white" />
 					</button>
 				</div>
@@ -66,7 +63,7 @@ const Navbar = (props: Props) => {
 				className={clsx(
 					!dropdownVisible && "hidden",
 					hasScrolled && "bg-gray-100/90 dark:bg-dark-gray/90",
-					"sticky top-16 bg-transparent dark:bg-transparent backdrop-blur transition-colors duration-500 border-b border-solid  dark:border-gray-900/[0.7] mb-2"
+					"sticky lg:hidden top-16 bg-transparent dark:bg-transparent backdrop-blur transition-colors duration-500 border-b border-solid  dark:border-gray-900/[0.7] mb-2"
 				)}
 			>
 				<NavbarLink onClick={() => setDropdownVisible(!dropdownVisible)} href="/#about" text={t("about")} />

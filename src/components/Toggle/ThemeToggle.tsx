@@ -62,11 +62,14 @@ const ThemeToggle = (props: Props) => {
 			{/* Mobile Version */}
 
 			<button
-				className={clsx(props.className, "p-2 w-full flex flex-row items-center bg-gray-700 rounded-md")}
+				className={clsx(
+					props.className,
+					"p-2 w-full flex flex-row items-center bg-gray-700 rounded-md lg:hidden"
+				)}
 				onClick={() => handleMobileThemeSwitch()}
 			>
-				{theme === "dark" && <SunIcon className="w-5 h-5 text-yellow-400" />}
-				{theme === "light" && <MoonIcon className="w-5 h-5 text-white" />}
+				<SunIcon className={clsx(!checked && "hidden", "w-5 h-5 text-yellow-400")} />
+				<MoonIcon className={clsx(checked && "hidden", "w-5 h-5 text-white")} />
 			</button>
 		</>
 	);
