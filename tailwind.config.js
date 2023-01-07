@@ -12,6 +12,12 @@ module.exports = {
 			fontFamily: {
 				sans: ["Inter", ...defaultTheme.fontFamily.sans],
 			},
+			screens: {
+				tall: { raw: "(min-height: 1300px)" },
+			},
+			transitionProperty: {
+				introduction: "width, opacity, visibility",
+			},
 		},
 	},
 	plugins: [require("@tailwindcss/typography")],

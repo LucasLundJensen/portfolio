@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 interface Props {
 	href: string;
 	text: string;
+	onClick?: () => void;
 }
 
 const NavbarLink = (props: Props) => {
@@ -27,6 +28,7 @@ const NavbarLink = (props: Props) => {
 					"mr-2 last:mr-0 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-gray-200 p-2 rounded-md transition-[background]",
 					activePath && "bg-gray-700"
 				)}
+				onClick={props.onClick}
 			>
 				{props.text}
 			</div>

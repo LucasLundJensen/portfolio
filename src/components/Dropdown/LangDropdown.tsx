@@ -26,7 +26,7 @@ const LangDropdown = (props: Props) => {
 	const router = useRouter();
 
 	return (
-		<div className="relative ml-2">
+		<div className="relative">
 			<button
 				className="flex flex-row items-center bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 p-2 rounded-md"
 				onClick={() => setVisible(!visible)}
