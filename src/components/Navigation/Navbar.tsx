@@ -51,7 +51,7 @@ const Navbar = (props: Props) => {
 				<div className="hidden lg:flex flex-row items-center lg:ml-auto">
 					<NavbarLink href="/#about" text={t("about")} />
 					<NavbarLink href="/#projects" text={t("projects")} />
-					<NavbarLink href="/jobs" text={t("experience")} />
+					{/* <NavbarLink href="/jobs" text={t("experience")} /> */}
 					<LangDropdown languages={locales || []} />
 					<ThemeToggle className="ml-2" />
 				</div>
